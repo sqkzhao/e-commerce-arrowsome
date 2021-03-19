@@ -6,10 +6,15 @@ export default makeStyles((theme) => ({
         paddingTop: '25px',
     },
     menuButton: {
-        // marginRight: theme.spacing(2),
+        // marginLeft: theme.spacing(15),
         flexGrow: 1,
+    },
+    cartButton: {
+        // marginRight: theme.spacing(5),
     },
     title: {
         flexGrow: 1,
+        textDecoration: 'none',
+        color: 'black',
     },
 }));

@@ -7,6 +7,8 @@ export default makeStyles((theme) => ({
     },
     title: {
       flexGrow: 1,
+      textDecoration: 'none',
+      color: 'black',
     },
     carticon: {
       flexGrow: 1,
@@ -17,4 +19,8 @@ export default makeStyles((theme) => ({
     itemContianer: {
       height: '80vh',
     },
+    link: {
+      textDecoration: 'none',
+      color: 'black',
+    }
 }));
