@@ -22,5 +22,5 @@ export default makeStyles((theme) => ({
     link: {
       textDecoration: 'none',
       color: 'black',
-    }
+    },
 }));

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IconButton, Badge } from '@material-ui/core';
-import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
+import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
 import useStyles from './cartIconStyles';
 
 const CartIcon = ({ cart }) => {
@@ -11,7 +11,7 @@ const CartIcon = ({ cart }) => {
         <Link to='/cart'>
             <IconButton edge="end" className={classes.cartIcon} color="inherit" aria-label="menu">
                 <Badge badgeContent={cart.total_items} color="primary">
-                    <ShoppingCartOutlinedIcon />
+                    <LocalMallOutlinedIcon />
                 </Badge>
             </IconButton>
         </Link>

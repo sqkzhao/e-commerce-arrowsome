@@ -1,8 +1,8 @@
 import React from 'react';
-import { Grid, TextField, CardContent } from '@material-ui/core';
 import { useFormContext, Controller } from 'react-hook-form';
+import { Grid, TextField } from '@material-ui/core';
 
-const TextInput = ({ name, label, required }) => {
+const TextInput = ({ name, label, defaultValue }) => {
     const { control } = useFormContext();
 
     return (
@@ -12,12 +12,13 @@ const TextInput = ({ name, label, required }) => {
                 name={name}
                 control={control}
                 label={label}
+                margin="normal"
+                size="small" 
+                variant="outlined"
                 fullWidth
-                required={required}
+                required
+                defaultValue={defaultValue}
             />
-            <CardContent>
-
-            </CardContent>
         </Grid>
     );
 };

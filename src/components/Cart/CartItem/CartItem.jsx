@@ -22,10 +22,10 @@ const CartItem = ({ item, handelUpdateCart, handleRemoveFromCart }) => {
                     <CloseIcon onClick={() => handleRemoveFromCart(item.id)} className={classes.closeIcon} />
                 </IconButton>
             </Grid>
-            <Grid item xs={3} sm={3} md={2} lg={2} className={classes.itemContent}>
+            <Grid item xs={4} sm={3} md={2} lg={2} className={classes.itemContent}>
                 <img src={item.media.source} alt={item.description} width="100" height="120" />
             </Grid>
-            <Grid item xs={4} sm={4} md={6} lg={6}>
+            <Grid item xs={3} sm={4} md={6} lg={6}>
                 <Typography variant='subtitle1'>{item.name}</Typography>
             </Grid>
             <Grid item xs={2} sm={2} md={1} lg={1}>

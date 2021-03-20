@@ -41,8 +41,8 @@ const Cart = ({ cart, handelUpdateCart, handleRemoveFromCart }) => {
                     </Typography>
                 </Grid>
             </Grid>
-            <Grid container direction="row" justify="flex-end" className={classes.cartButton}>
-                <Button component={Link} to='/checkout' size="large" color="primary" variant="contained">
+            <Grid container direction="row" justify="flex-end">
+                <Button component={Link} to='/checkout' size="large" color="primary" variant="contained" className={classes.checkoutButton}>
                     CHECKOUT
                 </Button>
             </Grid>

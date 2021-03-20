@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core';
 export default makeStyles((theme) => ({
     appbar: {
         flexGrow: 1,
-        padding: '13px',
+        padding: '10px',
         border: 'solid 1px #DCDCDC',
     },
     title: {

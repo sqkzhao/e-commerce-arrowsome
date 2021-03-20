@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardActionArea, CardMedia, CardContent, Typography, CardActions, IconButton, Badge } from '@material-ui/core';
+import { Card, CardActionArea, CardMedia, CardContent, Typography, Grid, CardActions, IconButton, Badge } from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons';
 import useStyles from './styles';
 
@@ -14,18 +14,21 @@ const Product = ({ product, handleAddToCart }) => {
                     image={product.media.source}
                     title={product.name}
                 />
-            </CardActionArea>
-            <CardContent className={classes.cardContent}>
-                <Typography gutterBottom variant="h6" component="h6">
-                    {product.name}
-                </Typography>
-            </CardContent>
+                <CardContent>
+                    <Typography gutterBottom variant="h6" component="h6" align="center">
+                        {product.name}
+                    </Typography>
+                    <Typography gutterBottom variant="subtitle1" align="center">
+                        {product.price.formatted_with_symbol}
+                    </Typography>
+                </CardContent>
 
-            <CardActions disableSpacing className={classes.cardActions}>
-                <IconButton aria-label="Add to Cart" onClick={() => handleAddToCart(product.id, 1)}>
-                    <AddShoppingCart />
-                </IconButton>
-            </CardActions>
+                {/* <CardActions disableSpacing className={classes.cardActions}>
+                    <IconButton aria-label="Add to Cart" onClick={() => handleAddToCart(product.id, 1)}>
+                        <AddShoppingCart />
+                    </IconButton>
+                </CardActions> */}
+            </CardActionArea>
         </Card>
     );
 };

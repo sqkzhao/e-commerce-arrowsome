@@ -8,6 +8,9 @@ export default makeStyles((theme) => ({
     header: {
         paddingBottom: '0',
     },
+    grayHeader: {
+        color: '#808080',
+    },
     cardContent: {
         paddingTop: '0',
     },
@@ -22,5 +25,9 @@ export default makeStyles((theme) => ({
     },
     twoTextfield: {
         width: '48%',
+    },
+    editButton: {
+        marginTop: theme.spacing(2),
+        color: '#808080',
     },
 }));

@@ -4,6 +4,8 @@ import useStyles from './styles';
 
 const OrderSummary = ({ cart }) => {
     const classes = useStyles();
+    
+    if (!cart.line_items) return 'Loading';
 
     return (
         <Card className={classes.box} elevation={0}>
@@ -15,17 +17,16 @@ const OrderSummary = ({ cart }) => {
                 {/* error: line_item is undefined when directly refresh checkout page */}
                 {cart.line_items.map((item) => (
                     <Grid container className={classes.itemGrid}>
-                        <Grid item lg={3}>
+                        <Grid item xs={4} sm={3} md={3} lg={3}>
                             <img src={item.media.source} alt={item.description} width="80" height="80" />
                         </Grid>
-                        <Grid item lg={6}>
+                        <Grid item xs={5} sm={6} md={6} lg={6}>
                             {item.name}
                         </Grid>
-                        <Grid item align="right" lg={3}>
+                        <Grid item align="right" xs={3} sm={3} md={3} lg={3}>
                             <Typography>{item.price.formatted_with_symbol}</Typography>
                             <Typography>Qty. {item.quantity}</Typography>
-                            
-                            <Button size="small" variant="outlined" className={classes.removeButton}>Remove</Button>
+                            {/* <Button size="small" variant="outlined" className={classes.removeButton}>Remove</Button> */}
                         </Grid>
                     </Grid>
                 ))}

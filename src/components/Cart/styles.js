@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core';
 export default makeStyles((theme) => ({
     toolbar: theme.mixins.toolbar,
     title: {
-        marginTop: '5%',
         marginBottom: '3%',
     },
     itemGrid: {
@@ -18,9 +17,11 @@ export default makeStyles((theme) => ({
     subtotal: {
         paddingTop: '40px',
     },
-    cartButton: {
-        paddingTop: '40px',
-        paddingBottom: '40px',
+    checkoutButton: {
+        marginTop: '40px',
+        marginBottom: '40px',
+        borderRadius: '0',
+        backgroundColor: '#000',
     },
 }));
 
