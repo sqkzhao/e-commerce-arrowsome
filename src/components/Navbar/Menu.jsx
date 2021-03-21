@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, AppBar, Toolbar, IconButton, Typography, Slide, Button, List, ListItem, ListItemText, Dialog, Grid } from '@material-ui/core';
+import { Container, AppBar, Toolbar, IconButton, Typography, Slide, Button, Dialog, Grid } from '@material-ui/core';
 import MenuIcon  from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import CartIcon from './CartIcon';
@@ -25,41 +25,57 @@ const Menu = ({ cart }) => {
 
     return (
         <div>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <IconButton 
+                className={classes.menuButton} 
+                edge="start" 
+                color="inherit" 
+                aria-label="menu"
+            >
                 <MenuIcon onClick={handleClickOpen} />
             </IconButton>
-            <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+            <Dialog onClose={handleClose} fullScreen open={open} TransitionComponent={Transition}>
                 <Container>
                     <AppBar className={classes.appBar} color="inherit" elevation={0}>
                         <Toolbar>
-                            <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+                            <IconButton 
+                                onClick={handleClose} 
+                                edge="start" 
+                                color="inherit" 
+                                aria-label="close"
+                            >
                                 <CloseIcon />
                             </IconButton>
-                            <Typography align="center" variant="h6" className={classes.title}>
+                            <Typography className={classes.title} align="center" variant="h6">
                                 <Link to='/' className={classes.title}>ARROWSOME</Link>
                             </Typography>
                             <CartIcon cart={cart} className={classes.carticon} />
                         </Toolbar>
                     </AppBar>
                 </Container>
-                <Grid container direction="column" justify="center" alignItems="center" className={classes.itemContianer}>
+                <Grid 
+                    className={classes.itemContianer}
+                    container 
+                    direction="column" 
+                    justify="center" 
+                    alignItems="center" 
+                >
                     <Link to='/shop' className={classes.link}>
                         <Button>
-                            <Typography variant="h4" className={classes.menuItem}>
+                            <Typography className={classes.menuItem} variant="h4">
                                 Shop
                             </Typography>
                         </Button>
                     </Link>
                     <Link to='/ourstory' className={classes.link}>
                         <Button>
-                            <Typography variant="h4" className={classes.menuItem}>
+                            <Typography className={classes.menuItem} variant="h4">
                                 Our Story
                             </Typography>
                         </Button>
                     </Link>
                     <Link to='/contact' className={classes.link}>
                         <Button>
-                            <Typography variant="h4" className={classes.menuItem}>
+                            <Typography className={classes.menuItem} variant="h4">
                                 Contact
                             </Typography>
                         </Button>

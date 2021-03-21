@@ -7,9 +7,16 @@ import useStyles from './cartIconStyles';
 const CartIcon = ({ cart }) => {
     const classes = useStyles();
 
+    if(!cart) return 'Loading';
+
     return (
         <Link to='/cart'>
-            <IconButton edge="end" className={classes.cartIcon} color="inherit" aria-label="menu">
+            <IconButton 
+                className={classes.cartIcon} 
+                edge="end" 
+                color="inherit" 
+                aria-label="menu"
+            >
                 <Badge badgeContent={cart.total_items} color="primary">
                     <LocalMallOutlinedIcon />
                 </Badge>

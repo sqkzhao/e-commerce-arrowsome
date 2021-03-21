@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Typography, Grid, TextField, IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-
 import useStyles from './styles';
 
 const CartItem = ({ item, handelUpdateCart, handleRemoveFromCart }) => {
@@ -16,13 +15,13 @@ const CartItem = ({ item, handelUpdateCart, handleRemoveFromCart }) => {
     };
 
     return (
-        <Grid container direction="row" alignItems="center" className={classes.itemGrid}>
+        <Grid className={classes.itemGrid} container direction="row" alignItems="center">
             <Grid item xs={1} sm={1} md={1} lg={1}>
                 <IconButton edge="start" color="inherit" aria-label="close">
                     <CloseIcon onClick={() => handleRemoveFromCart(item.id)} className={classes.closeIcon} />
                 </IconButton>
             </Grid>
-            <Grid item xs={4} sm={3} md={2} lg={2} className={classes.itemContent}>
+            <Grid className={classes.itemContent} item xs={4} sm={3} md={2} lg={2} >
                 <img src={item.media.source} alt={item.description} width="100" height="120" />
             </Grid>
             <Grid item xs={3} sm={4} md={6} lg={6}>

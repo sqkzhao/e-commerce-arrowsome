@@ -1,7 +1,6 @@
 import React from 'react';
-import  { Grid, Card, CardContent, CardHeader, Button, TextField, Typography } from '@material-ui/core';
-import { useForm, FormProvider } from 'react-hook-form';
-import TextInput from './TextInput';
+import { useForm } from 'react-hook-form';
+import  { Grid, Card, CardContent, CardHeader, Button, Typography } from '@material-ui/core';
 import useStyles from './styles';
 
 const ShippingFormCollapsed = ({ section, shippingInfo, setSection }) => {

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Navbar, CartItem } from '../../components';
-import { Typography, Grid, Container, Button } from '@material-ui/core';
-import useStyles from './styles';
 import { Link } from 'react-router-dom';
+import { Typography, Grid, Container, Button } from '@material-ui/core';
+import { Navbar, CartItem } from '../../components';
+import useStyles from './styles';
 
 const Cart = ({ cart, handelUpdateCart, handleRemoveFromCart }) => {
     const classes = useStyles();
@@ -17,32 +17,49 @@ const Cart = ({ cart, handelUpdateCart, handleRemoveFromCart }) => {
     const FullCart = () => (
         <Grid container>
             {/* header */}
-            <Grid container direction="row" className={classes.itemGrid}>
+            <Grid className={classes.itemGrid} container direction="row">
                 <Grid item xs={1} sm={1} md={1} lg={1}>
-                    <Typography variant='body2' className={classes.header}>ITEM</Typography>
+                    <Typography className={classes.header} variant='body2'>
+                        ITEM
+                    </Typography>
                 </Grid>
                 <Grid item xs={3} sm={3} md={3} lg={3}></Grid>
                 <Grid item xs={4} sm={4} md={4} lg={4}></Grid>
                 <Grid item xs={2} sm={2} md={2} lg={2}>
-                    <Typography align='right' variant='body2' className={classes.header}>QTY.</Typography>
+                    <Typography className={classes.header} align='right' variant='body2'>
+                        QTY.
+                    </Typography>
                 </Grid>
                 <Grid item xs={2} sm={2} md={2} lg={2}>
-                    <Typography align='right' variant='body2' className={classes.header}>PRICE</Typography>
+                    <Typography className={classes.header} align='right' variant='body2'>
+                        PRICE
+                    </Typography>
                 </Grid>
             </Grid>
             {/* cart items */}
             {cart.line_items.map((item) => (
-                <CartItem item={item} handelUpdateCart={handelUpdateCart} handleRemoveFromCart={handleRemoveFromCart}/>
+                <CartItem 
+                    item={item} 
+                    handelUpdateCart={handelUpdateCart} 
+                    handleRemoveFromCart={handleRemoveFromCart}
+                />
             ))}
             <Grid container direction="row" justify="flex-end">
-                <Grid item className={classes.subtotal}>
+                <Grid className={classes.subtotal} item>
                     <Typography align='right'>
                         Subtotal {cart.subtotal.formatted_with_symbol}
                     </Typography>
                 </Grid>
             </Grid>
             <Grid container direction="row" justify="flex-end">
-                <Button component={Link} to='/checkout' size="large" color="primary" variant="contained" className={classes.checkoutButton}>
+                <Button 
+                    className={classes.checkoutButton}
+                    component={Link} 
+                    to='/checkout' 
+                    size="large" 
+                    color="primary" 
+                    variant="contained"
+                >
                     CHECKOUT
                 </Button>
             </Grid>
@@ -56,7 +73,7 @@ const Cart = ({ cart, handelUpdateCart, handleRemoveFromCart }) => {
             <Navbar cart={cart} />
             <Container>
                 <div className={classes.toolbar} />
-                <Typography variant="h5" className={classes.title}>
+                <Typography className={classes.title} variant="h5">
                     SHOPPING CART
                 </Typography>
                 {isEmpty ? <EmptyCart /> : <FullCart />}

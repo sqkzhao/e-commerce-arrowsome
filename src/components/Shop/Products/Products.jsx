@@ -1,7 +1,6 @@
 import React from 'react';
-import Product from '../Product/Product';
-
 import { Grid } from '@material-ui/core';
+import Product from '../Product/Product';
 import useStyles from './styles';
 
 const Products = ({ products, handleAddToCart }) => { 

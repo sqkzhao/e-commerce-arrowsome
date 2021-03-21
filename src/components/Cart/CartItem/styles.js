@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 
-export default makeStyles((theme) => ({
+export default makeStyles(() => ({
     itemGrid: {
         width: '100vw',
         borderBottom: 'solid 1px #DCDCDC',

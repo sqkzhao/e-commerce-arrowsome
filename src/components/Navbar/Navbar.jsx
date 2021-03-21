@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, AppBar, Toolbar, IconButton, Typography, Badge, Button, Snackbar } from '@material-ui/core';
-import InstagramIcon from '@material-ui/icons/Instagram';
-
+import { Container, AppBar, Toolbar, Typography } from '@material-ui/core';
 import Menu from './Menu';
 import CartIcon from './CartIcon';
+import InstagramIcon from '@material-ui/icons/Instagram';
 import useStyles from './navbarStyles';
 
 const Navbar = ({ cart }) => {
@@ -15,7 +14,7 @@ const Navbar = ({ cart }) => {
             <AppBar position="static" color="transparent" elevation={0}>
                 <Toolbar>
                     <Menu cart={cart} />
-                    <Typography align="center" variant="h6" className={classes.title}>
+                    <Typography className={classes.title} align="center" variant="h6">
                         <Link to='/' className={classes.title}>ARROWSOME</Link>
                     </Typography>
                     {/* <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">

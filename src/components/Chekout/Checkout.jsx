@@ -6,7 +6,7 @@ import CheckoutInfo from './ChekoutInfo/CheckoutInfo';
 import OrderSummary from './OrderSummary/OrderSummary';
 import useStyles from './styles';
 
-const Checkout = ({ cart }) => {
+const Checkout = ({ cart, order, handleCaptureCheckout, error }) => {
     const classes = useStyles();
     const [token, setToken] = useState(null);
 
@@ -14,9 +14,10 @@ const Checkout = ({ cart }) => {
         try  {
             const data = await commerce.checkout.generateToken(cartId, { type: 'cart' });
             console.log(data);
+            console.log("cart", cart);
             setToken(data);
         }
-        catch(error) {
+        catch(err) {
 
         }
     }
@@ -27,10 +28,10 @@ const Checkout = ({ cart }) => {
 
     return (
         <div>
-            <AppBar position="fixed" color="inherit" elevation={0} className={classes.appbar}>
+            <AppBar className={classes.appbar} position="fixed" color="inherit" elevation={0}>
                 <Toolbar>
                     <Container>
-                        <Typography align="left" variant="h6" className={classes.title}>
+                        <Typography className={classes.title} align="left" variant="h6">
                             <Link to='/' className={classes.title}>
                                 ARROWSOME
                             </Link>
@@ -43,12 +44,17 @@ const Checkout = ({ cart }) => {
 
             <Container className={classes.container}>
                 <Grid container justify="center" spacing={5}>
-                    <Grid item xs={12} md={6} lg={5}>
-                        <CheckoutInfo />
+                    <Grid item xs={12} sm={12} md={6} lg={5}>
+                        {token && <CheckoutInfo 
+                            token={token} 
+                            order={order}
+                            handleCaptureCheckout={handleCaptureCheckout}
+                            error={error}
+                        />}
                     </Grid>
                     
-                    <Grid item xs={12} md={6} lg={5}>
-                        <OrderSummary cart={cart} />
+                    <Grid item xs={12} sm={12} md={6} lg={5}>
+                        {token && <OrderSummary token={token} />}
                     </Grid>
                 </Grid>
             </Container>

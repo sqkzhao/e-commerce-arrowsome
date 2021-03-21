@@ -11,7 +11,7 @@ export default makeStyles(() => ({
         backgroundSize: 'cover',
     },
     container: {
-        height: '90vh',
+        height: '75vh',
     },
     title: {
         color: '#262626',
@@ -20,9 +20,9 @@ export default makeStyles(() => ({
     },
     shopButton: {
         color: '#fff',
-        marginTop: '38px',
+        marginTop: '28px',
         borderRadius: '0',
-        padding: '20px 38px',
+        padding: '18px 35px',
         fontSize: '15px',
     },
 }));

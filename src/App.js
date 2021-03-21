@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce';
-import { Shop, Checkout, Home, Cart } from './components';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Shop, Checkout, Home, Cart } from './components';
+
+import ProductDetailes from './components/Shop/ProductDetailes';
 
 const App = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({});
+    const [order, setOrder] = useState({});
+    const [error, setError] = useState('');
 
     const fetchProducts = async () => {
         const { data } = await commerce.products.list();
@@ -31,12 +35,25 @@ const App = () => {
         setCart(response.cart);
     };
 
+    const refreshCart = async () => {
+        const newCart = await commerce.cart.refresh();
+        setCart(newCart);
+    };
+
+    const handleCaptureCheckout = async (tokenId, order) => {
+        try {
+            const processingOrder = await commerce.checkout.capture(tokenId, order);
+            setOrder(processingOrder);
+            refreshCart()
+        } catch(res) {
+            setError(res.data.error.message);
+        }
+    }
+
     useEffect(() => {
         fetchProducts();
         fetchCart();
     }, []);
-
-    console.log(cart);
 
     return (
         <Router>
@@ -46,14 +63,30 @@ const App = () => {
                         <Home cart={cart} />
                     </Route>
                     <Route exact path='/shop'>
-                        <Shop cart={cart} products={products} handleAddToCart={handleAddToCart} />
+                        <Shop 
+                            cart={cart} 
+                            products={products} 
+                            handleAddToCart={handleAddToCart} 
+                        />
                     </Route>
                     <Route exact path='/cart'>
-                        <Cart cart={cart} handelUpdateCart={handelUpdateCart} handleRemoveFromCart={handleRemoveFromCart}/>
+                        <Cart 
+                            cart={cart} 
+                            handelUpdateCart={handelUpdateCart} 
+                            handleRemoveFromCart={handleRemoveFromCart}
+                        />
                     </Route>
                     <Route exact path='/checkout'>
-                        <Checkout cart={cart} />
+                        <Checkout 
+                            cart={cart} 
+                            order={order}
+                            handleCaptureCheckout={handleCaptureCheckout}
+                            error={error}
+                        />
                     </Route>
+                    {/* <Route exact path='/detail'>
+                        <ProductDetailes cart={cart} products={products} />
+                    </Route> */}
                 </Switch>
             </div>
         </Router>

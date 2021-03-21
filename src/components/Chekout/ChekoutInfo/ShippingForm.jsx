@@ -1,5 +1,5 @@
 import React from 'react';
-import  { Grid, Card, CardContent, CardHeader, Button, TextField, Typography } from '@material-ui/core';
+import { Grid, Card, CardContent, CardHeader, Button, TextField } from '@material-ui/core';
 import { useForm, FormProvider } from 'react-hook-form';
 import TextInput from './TextInput';
 import ShippingFormCollapsed from './ShippingFormCollapsed';
@@ -16,7 +16,7 @@ const ShippingForm = ({ section, shippingInfo, setShippingSection, setSection })
 
             // EXPANDED SHIPPING FORM
             <FormProvider {...methods}>
-                <form onSubmit={methods.handleSubmit((data) => setShippingSection({...data, state}))}>
+                <form onSubmit={methods.handleSubmit((data) => setShippingSection({...data, state, ...shippingInfo}))}>
                     <Card className={classes.box} elevation={0}>
                         <CardHeader
                             title="2. Shipping"
@@ -87,7 +87,11 @@ const ShippingForm = ({ section, shippingInfo, setShippingSection, setSection })
             </FormProvider> :
 
             // COLLAPSED SHIPPING FORM
-            <ShippingFormCollapsed section={section} shippingInfo={shippingInfo} setSection={setSection} />
+            <ShippingFormCollapsed 
+                section={section} 
+                shippingInfo={shippingInfo} 
+                setSection={setSection} 
+            />
             }
         </>
     );
