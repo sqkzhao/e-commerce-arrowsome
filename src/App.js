@@ -43,10 +43,11 @@ const App = () => {
     const handleCaptureCheckout = async (tokenId, order) => {
         try {
             const processingOrder = await commerce.checkout.capture(tokenId, order);
+            console.log(processingOrder);
             setOrder(processingOrder);
             refreshCart()
-        } catch(res) {
-            setError(res.data.error.message);
+        } catch(error) {
+            setError(error.data.error.message);
         }
     }
 
@@ -64,6 +65,12 @@ const App = () => {
                     </Route>
                     <Route exact path='/shop'>
                         <Shop 
+                            cart={cart} 
+                            products={products} 
+                        />
+                    </Route>
+                    <Route path='/shop/:productId'>
+                        <ProductDetailes 
                             cart={cart} 
                             products={products} 
                             handleAddToCart={handleAddToCart} 
@@ -84,9 +91,6 @@ const App = () => {
                             error={error}
                         />
                     </Route>
-                    {/* <Route exact path='/detail'>
-                        <ProductDetailes cart={cart} products={products} />
-                    </Route> */}
                 </Switch>
             </div>
         </Router>

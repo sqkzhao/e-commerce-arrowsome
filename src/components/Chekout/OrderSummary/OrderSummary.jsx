@@ -1,8 +1,8 @@
 import React from 'react';
-import { Grid, Card, CardContent, CardHeader, Typography, Button } from '@material-ui/core';
+import { Grid, Card, CardContent, CardHeader, Typography, CircularProgress } from '@material-ui/core';
 import useStyles from './styles';
 
-const OrderSummary = ({ token }) => {
+const OrderSummary = ({ token, cart }) => {
     const classes = useStyles();
     
     return (
@@ -13,7 +13,7 @@ const OrderSummary = ({ token }) => {
             />
             <CardContent>
                 {/* error: line_item is undefined when directly refresh checkout page */}
-                {token.live.line_items.map((item) => (
+                {token ? token.live.line_items.map((item) => (
                     <Grid className={classes.itemGrid} container>
                         <Grid item xs={4} sm={3} md={3} lg={3}>
                             <img 
@@ -36,13 +36,17 @@ const OrderSummary = ({ token }) => {
                             {/* <Button size="small" variant="outlined" className={classes.removeButton}>Remove</Button> */}
                         </Grid>
                     </Grid>
-                ))}
+                )) :
+                <Grid container justify="center">
+                    <CircularProgress className={classes.circle} />            
+                </Grid>}
+
                 <Grid className={classes.subtotalGrid} container justify="space-between">
                     <Typography variant="subtitle2">
                         Subtotal
                     </Typography>
                     <Typography variant="subtitle2">
-                        {token.live.subtotal.formatted_with_symbol}
+                        {token && token.live.subtotal.formatted_with_symbol}
                     </Typography>
                 </Grid>
                 <Grid className={classes.subtotalGrid} container justify="space-between">
@@ -58,7 +62,7 @@ const OrderSummary = ({ token }) => {
                         Total
                     </Typography>
                     <Typography variant="subtitle2">
-                        {token.live.subtotal.formatted_with_symbol}
+                        {token && token.live.subtotal.formatted_with_symbol}
                     </Typography>
                 </Grid>
             </CardContent>

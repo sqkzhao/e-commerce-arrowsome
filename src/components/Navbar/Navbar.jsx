@@ -11,7 +11,11 @@ const Navbar = ({ cart }) => {
 
     return (
         <Container className={classes.root}>
-            <AppBar position="static" color="transparent" elevation={0}>
+            <AppBar 
+                position="static" 
+                color="transparent" 
+                elevation={0}
+            >
                 <Toolbar>
                     <Menu cart={cart} />
                     <Typography className={classes.title} align="center" variant="h6">

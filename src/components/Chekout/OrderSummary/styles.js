@@ -23,5 +23,9 @@ export default makeStyles((theme) => ({
     },
     totalGrid: {
         paddingTop: '20px',
-    }
+    },
+    circle: {
+        padding: '7px',
+        color: '#000',
+    },
 }));

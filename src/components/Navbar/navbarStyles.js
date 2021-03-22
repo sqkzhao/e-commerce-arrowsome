@@ -5,9 +5,9 @@ export default makeStyles(() => ({
         flexGrow: 1,
         paddingTop: '18px',
     },
-    menuButton: {
-        flexGrow: 1,
-    },
+    // menuButton: {
+    //     flexGrow: 1,
+    // },
     cartButton: {
     },
     title: {

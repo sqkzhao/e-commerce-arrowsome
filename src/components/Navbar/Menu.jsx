@@ -33,7 +33,12 @@ const Menu = ({ cart }) => {
             >
                 <MenuIcon onClick={handleClickOpen} />
             </IconButton>
-            <Dialog onClose={handleClose} fullScreen open={open} TransitionComponent={Transition}>
+            <Dialog 
+                onClose={handleClose} 
+                fullScreen 
+                open={open} 
+                TransitionComponent={Transition}
+            >
                 <Container>
                     <AppBar className={classes.appBar} color="inherit" elevation={0}>
                         <Toolbar>

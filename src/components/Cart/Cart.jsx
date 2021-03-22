@@ -10,7 +10,7 @@ const Cart = ({ cart, handelUpdateCart, handleRemoveFromCart }) => {
 
     const EmptyCart = () => (
         <Typography variant="subtitle">
-            You have nothing in your shopping cart. Continue Shopping
+            You have nothing in your shopping bag.
         </Typography>
     );
 
@@ -73,10 +73,12 @@ const Cart = ({ cart, handelUpdateCart, handleRemoveFromCart }) => {
             <Navbar cart={cart} />
             <Container>
                 <div className={classes.toolbar} />
-                <Typography className={classes.title} variant="h5">
-                    SHOPPING CART
-                </Typography>
-                {isEmpty ? <EmptyCart /> : <FullCart />}
+                <Container>
+                    <Typography className={classes.title} variant="h5">
+                        SHOPPING BAG
+                    </Typography>
+                    {isEmpty ? <EmptyCart /> : <FullCart />}
+                </Container>
             </Container>
         </div>
        

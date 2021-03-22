@@ -8,7 +8,8 @@ export default makeStyles(() => ({
         height: 0,
         paddingTop: '100%',
     },
-    cardContent: {
-        height: '50px',
+    link: {
+        textDecoration: 'none',
+        color: '#000',
     },
 }));

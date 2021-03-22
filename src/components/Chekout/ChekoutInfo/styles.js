@@ -31,4 +31,33 @@ export default makeStyles((theme) => ({
         marginTop: theme.spacing(2),
         color: '#808080',
     },
+    inputErr: {
+        color: '#ff0000',
+    },
+    // ShippingForm
+    divider: {
+        marginTop: 20,
+        marginBottom: 10,
+    },
+    // PaymentForm
+    payButton: {
+        marginTop: '8px',
+        backgroundColor: '#313131',
+        color: '#fff',
+        width: '100%',
+        paddingTop: '5px',
+        paddingBottom: '5px',
+        borderRadius: '0',
+    },
+    nameField: {
+        marginBottom: '20px',
+    },
+    creditCard: {
+        backgroundColor: '#ebfbf4',
+    },
+    errorMsg: {
+        color: '#ff0000',
+        width: '100%',
+        textAlign: 'right',
+    },
 }));

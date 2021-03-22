@@ -24,6 +24,7 @@ const ShippingFormCollapsed = ({ section, shippingInfo, setSection }) => {
                         /> 
                     </Grid>
                     <Grid item xs={2} sm={2} md={2} lg={2}>
+                        {(section !== 4) &&
                         <Button 
                             className={classes.editButton} 
                             onClick={handleOnClick} 
@@ -31,7 +32,7 @@ const ShippingFormCollapsed = ({ section, shippingInfo, setSection }) => {
                             variant="outlined"
                         >
                             Edit
-                        </Button>
+                        </Button>}
                     </Grid>
                 </Grid>                                           
                 <CardContent>

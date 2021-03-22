@@ -1,16 +1,16 @@
 import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
-import  { Card, CardContent, CardHeader, Typography, Button, Grid } from '@material-ui/core';
+import  { Card, CardContent, CardHeader, Typography, Button, Grid, FormHelperText } from '@material-ui/core';
 import TextInput from './TextInput';
 import useStyles from './styles';
 
-const EmailForm = ({ section, email, setEmailSection, setSection }) => {
+const EmailForm = ({ section, email, inputError, setEmailSection, setSection }) => {
     const classes = useStyles();
     const methods = useForm();
 
     const handleOnClick = () => {
         setSection(1);
-    }
+    };
 
     return (
         <>
@@ -23,7 +23,12 @@ const EmailForm = ({ section, email, setEmailSection, setSection }) => {
                             className={classes.header}
                         /> 
                         <CardContent>
-                            <TextInput name="email" label="Email" defaultValue={email} />
+                            <TextInput 
+                                name="email" 
+                                label="Email" 
+                                defaultValue={email} 
+                                helperText={inputError.email}
+                            />
                             <Typography variant="body2" color="textSecondary" component="p">
                                 You'll receive receipts and notifications at this email address.
                             </Typography>
@@ -51,6 +56,7 @@ const EmailForm = ({ section, email, setEmailSection, setSection }) => {
                         /> 
                     </Grid>
                     <Grid item xs={2} sm={2} md={2} lg={2}>
+                        {(section !== 4) &&
                         <Button 
                             className={classes.editButton} 
                             onClick={handleOnClick} 
@@ -58,7 +64,7 @@ const EmailForm = ({ section, email, setEmailSection, setSection }) => {
                             variant="outlined"
                         >
                             Edit
-                        </Button>
+                        </Button>}
                     </Grid>
                 </Grid>                                           
                 <CardContent>
