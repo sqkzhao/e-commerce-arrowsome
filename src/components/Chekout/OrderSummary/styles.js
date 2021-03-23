@@ -5,6 +5,10 @@ export default makeStyles((theme) => ({
         marginBottom: '15px',
         padding: '10px',
     },
+    media: {
+        width: 80,
+        aspectRatio: 1.5,
+    },
     header: {
         paddingBottom: '0',
     },
@@ -25,7 +29,13 @@ export default makeStyles((theme) => ({
         paddingTop: '20px',
     },
     circle: {
-        padding: '7px',
+        padding: '10px',
         color: '#000',
+    },
+    media: {
+        aspectRatio: 0.9,
+    },
+    picture: {
+        boxShadow: 'none',
     },
 }));

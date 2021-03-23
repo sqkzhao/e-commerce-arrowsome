@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
-import  { Card, CardContent, CardHeader, Typography, Button, Grid, FormHelperText } from '@material-ui/core';
+import  { Card, CardContent, CardHeader, Typography, Button, Grid } from '@material-ui/core';
 import TextInput from './TextInput';
 import useStyles from './styles';
 
@@ -49,13 +49,13 @@ const EmailForm = ({ section, email, inputError, setEmailSection, setSection }) 
             // COLLAPSE COMPLETED FORM
             <Card className={classes.box} elevation={0}>
                 <Grid container justify="space-between">
-                    <Grid item xs={6} sm={6} md={6} lg={6}>
+                    <Grid item xs={9} sm={9} md={8} lg={8}>
                         <CardHeader
                             title="1. Your Email"
                             className={classes.header}
                         /> 
                     </Grid>
-                    <Grid item xs={2} sm={2} md={2} lg={2}>
+                    <Grid item xs={3} sm={3} md={2} lg={2} align="right">
                         {(section !== 4) &&
                         <Button 
                             className={classes.editButton} 

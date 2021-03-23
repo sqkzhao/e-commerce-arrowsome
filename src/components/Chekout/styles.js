@@ -19,4 +19,7 @@ export default makeStyles((theme) => ({
     box: {
         border: 'solid 1px #DCDCDC',
     },
+    checkoutBox: {
+        marginBottom: 100,
+    },
 }));

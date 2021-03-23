@@ -1,18 +1,17 @@
 import React from 'react';
-import { Card } from '@material-ui/core';
 import Cover from './Cover';
-import useStyles from './homestyles';
+import SectionShop from './SectionShop';
+import SectionNav from './SectionNav';
 
-const Home = ({ cart }) => {
+const Home = ({ cart, products }) => {
     // const classes = useStyles();
 
     return (
-        <div>
+        <>
             <Cover cart={cart}/>
-            <Card>
-                sdfsdf
-            </Card>
-        </div>
+            <SectionShop products={products} />
+            <SectionNav products={products} />
+        </>
     );
 };
 

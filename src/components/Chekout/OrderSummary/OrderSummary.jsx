@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card, CardContent, CardHeader, Typography, CircularProgress } from '@material-ui/core';
+import { Grid, Card, CardContent, CardHeader, Typography, CircularProgress, CardMedia } from '@material-ui/core';
 import useStyles from './styles';
 
 const OrderSummary = ({ token, cart }) => {
@@ -12,28 +12,23 @@ const OrderSummary = ({ token, cart }) => {
                 className={classes.header}
             />
             <CardContent>
-                {/* error: line_item is undefined when directly refresh checkout page */}
                 {token ? token.live.line_items.map((item) => (
-                    <Grid className={classes.itemGrid} container>
-                        <Grid item xs={4} sm={3} md={3} lg={3}>
-                            <img 
-                                src={item.media.source} 
-                                alt={item.description} 
-                                width="80" 
-                                height="80" 
-                            />
+                    <Grid className={classes.itemGrid} key={item.id} container spacing={2}>
+                        <Grid item xs={3} sm={3} md={3} lg={3}>
+                            <Card className={classes.picture} square>
+                                <CardMedia image={item.media.source} className={classes.media} />
+                            </Card>
                         </Grid>
-                        <Grid item xs={5} sm={6} md={6} lg={6}>
+                        <Grid item xs={6} sm={6} md={6} lg={6} variant='body1'>
                             {item.name}
                         </Grid>
                         <Grid item align="right" xs={3} sm={3} md={3} lg={3}>
-                            <Typography>
+                            <Typography variant="subtitle2">
                                 {item.price.formatted_with_symbol}
                             </Typography>
-                            <Typography>
+                            <Typography variant="subtitle2">
                                 Qty. {item.quantity}
                             </Typography>
-                            {/* <Button size="small" variant="outlined" className={classes.removeButton}>Remove</Button> */}
                         </Grid>
                     </Grid>
                 )) :

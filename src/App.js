@@ -61,7 +61,10 @@ const App = () => {
             <div>
                 <Switch>
                     <Route exact path='/'>
-                        <Home cart={cart} />
+                        <Home 
+                            cart={cart} 
+                            products={products} 
+                        />
                     </Route>
                     <Route exact path='/shop'>
                         <Shop 

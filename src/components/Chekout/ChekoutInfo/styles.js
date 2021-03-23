@@ -29,6 +29,7 @@ export default makeStyles((theme) => ({
     },
     editButton: {
         marginTop: theme.spacing(2),
+        marginRight: theme.spacing(2),
         color: '#808080',
     },
     inputErr: {

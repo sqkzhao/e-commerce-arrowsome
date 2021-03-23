@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Typography, Grid, Container, Button } from '@material-ui/core';
+import { Typography, Grid, Container, Button, CircularProgress, Divider } from '@material-ui/core';
 import { Navbar, CartItem } from '../../components';
 import useStyles from './styles';
 
@@ -36,9 +36,11 @@ const Cart = ({ cart, handelUpdateCart, handleRemoveFromCart }) => {
                     </Typography>
                 </Grid>
             </Grid>
+            <Divider className={classes.divider} />
             {/* cart items */}
             {cart.line_items.map((item) => (
                 <CartItem 
+                    key={item.id}
                     item={item} 
                     handelUpdateCart={handelUpdateCart} 
                     handleRemoveFromCart={handleRemoveFromCart}
@@ -66,14 +68,20 @@ const Cart = ({ cart, handelUpdateCart, handleRemoveFromCart }) => {
         </Grid>
     );
 
-    if (!cart.line_items) return 'Loading';
+    if (!cart.line_items) {
+        return (
+            <Container className={classes.circle} align="center">
+                <CircularProgress />
+            </Container>
+        );
+    }
 
     return (
         <div>
             <Navbar cart={cart} />
             <Container>
                 <div className={classes.toolbar} />
-                <Container>
+                <Container className={classes.cartBox}>
                     <Typography className={classes.title} variant="h5">
                         SHOPPING BAG
                     </Typography>

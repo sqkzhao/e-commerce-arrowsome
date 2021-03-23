@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
     Grid, Card, CardContent, CardHeader, 
-    Button, TextField, Divider,  
+    Button, TextField, Divider, CssBaseline
 } from '@material-ui/core';
 import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
@@ -21,7 +21,6 @@ const ShippingForm = ({ section, inputError, shippingInfo, setShippingSection, s
 
     const handleDateChange = (date) => {
         setDeliveryDate(date);
-        console.log(date);
     };
 
     return (
@@ -37,15 +36,15 @@ const ShippingForm = ({ section, inputError, shippingInfo, setShippingSection, s
                             className={classes.header}
                         />            
                         <CardContent className={classes.cardContent}>
-                            <Grid container justify="space-between" spacing={2}>
-                                <Grid item xs={6} sm={6} md={6} lg={6}>
+                            <Grid container justify="space-between" spacing={1}>
+                                <Grid item xs={12} sm={6} md={6} lg={6}>
                                     <TextInput 
                                         name="firstName" 
                                         label="First name" 
                                         defaultValue={shippingInfo.firstName} 
                                     />
                                 </Grid>
-                                <Grid item xs={6} sm={6} md={6} lg={6}>
+                                <Grid item xs={12} sm={6} md={6} lg={6}>
                                     <TextInput 
                                         name="lastName" 
                                         label="Last name" 
@@ -59,7 +58,7 @@ const ShippingForm = ({ section, inputError, shippingInfo, setShippingSection, s
                                 defaultValue={shippingInfo.address} 
                             />
                             <Grid container justify="space-between" spacing={1}>
-                                <Grid item xs={3} sm={3} md={3} lg={3}>
+                                <Grid item xs={12} sm={3} md={3} lg={3}>
                                     <TextInput 
                                         name="zipcode" 
                                         label="Zip-code" 
@@ -67,7 +66,7 @@ const ShippingForm = ({ section, inputError, shippingInfo, setShippingSection, s
                                         helperText={inputError.zipcode}
                                     />
                                 </Grid>
-                                <Grid item xs={5} sm={5} md={5} lg={5}>
+                                <Grid item xs={12} sm={5} md={5} lg={5}>
                                     <TextInput 
                                         name="city" 
                                         label="City" 
@@ -75,7 +74,7 @@ const ShippingForm = ({ section, inputError, shippingInfo, setShippingSection, s
                                         helperText={inputError.city}
                                     />
                                 </Grid>
-                                <Grid item xs={4} sm={4} md={4} lg={4}>
+                                <Grid item xs={12} sm={4} md={4} lg={4}>
                                     <TextField 
                                         disabled 
                                         fullWidth 
@@ -94,7 +93,6 @@ const ShippingForm = ({ section, inputError, shippingInfo, setShippingSection, s
                             <MuiPickersUtilsProvider utils={DateFnsUtils}>
                                 <KeyboardDatePicker
                                     margin="normal"
-                                    // id="date-picker-dialog"
                                     label="Schedule delivery date"
                                     format="MM/dd/yyyy"
                                     value={deliveryDate}
@@ -103,11 +101,11 @@ const ShippingForm = ({ section, inputError, shippingInfo, setShippingSection, s
                                         'aria-label': 'change date',
                                     }}
                                     helperText={inputError.deliveryDate}
-                                    error={inputError.deliveryDate}
+                                    error={inputError.deliveryDate ? true : false}
                                 />
                             </MuiPickersUtilsProvider>
                             <TextField
-                                label="Enter a special message for the recipient here"
+                                label="Enter a gift message"
                                 onChange={handleMsgChange}
                                 fullWidth
                                 multiline

@@ -6,7 +6,7 @@ export default makeStyles(() => ({
         paddingBottom: 0,
       },
     media: {
-        height: 580,
+        aspectRatio: 0.9,
     },
     cartButton: {
         paddingTop: '15px',
@@ -18,6 +18,7 @@ export default makeStyles(() => ({
     },
     productBox: {
         marginTop: 60,
+        marginBottom: 80,
     },
     divider: {
         marginTop: 20,

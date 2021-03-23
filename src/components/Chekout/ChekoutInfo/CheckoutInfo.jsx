@@ -3,15 +3,13 @@ import { commerce } from '../../../lib/commerce';
 import EmailForm from './EmailForm';
 import ShippingForm from './ShippingForm';
 import PaymentForm from './PaymentForm';
-import useStyles from './styles';
 
-const CheckoutInfo = ({ token, handleCaptureCheckout, error }) => {
-    const classes = useStyles();
+const CheckoutInfo = ({ section, setSection, token, handleCaptureCheckout, error }) => {
     const [customerInfo, setCustomerInfo] = useState({});
     const [shippingInfo, setShippingInfo] = useState({});
     const [deliveryDate, setDeliveryDate] = useState(new Date());
     const [giftMsg, setGiftMsg] = useState('');
-    const [section, setSection] = useState(1);
+    // const [section, setSection] = useState(1);
     const [inputError, setInputError] = useState({});
     const cityList = ["SAN FRANCISCO", "DALY CITY"];
 
@@ -55,9 +53,9 @@ const CheckoutInfo = ({ token, handleCaptureCheckout, error }) => {
         }
     };
 
-    const setPaymentSection = (num) => {
+    const setPaymentSection = () => {
         // click pay button 
-        setSection(num);
+        setSection(4);
     }
 
     const fetchShippingOptions = async (checkoutTokenId) => {
@@ -77,7 +75,6 @@ const CheckoutInfo = ({ token, handleCaptureCheckout, error }) => {
 
     return (
         <>  
-            {error}
             <EmailForm 
                 section={section} 
                 email={customerInfo.email} 

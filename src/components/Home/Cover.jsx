@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Grid, Typography, Button } from '@material-ui/core';
 import Navbar from '../Navbar/Navbar';
 import useStyles from './coverstyles';
+import styles from '../../module.css/Cover.module.css';
 
 const Cover = ({ cart }) => {
     const classes = useStyles();
@@ -26,7 +27,6 @@ const Cover = ({ cart }) => {
                     to='/shop'
                     size="large" 
                     variant="contained" 
-                    color="primary" 
                 >
                     Shop Now
                 </Button>

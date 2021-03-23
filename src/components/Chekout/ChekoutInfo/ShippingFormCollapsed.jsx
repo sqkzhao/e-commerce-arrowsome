@@ -1,11 +1,9 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
 import  { Grid, Card, CardContent, CardHeader, Button, Typography } from '@material-ui/core';
 import useStyles from './styles';
 
 const ShippingFormCollapsed = ({ section, shippingInfo, setSection }) => {
     const classes = useStyles();
-    const methods = useForm();
 
     const handleOnClick = () => {
         setSection(2);
@@ -17,13 +15,13 @@ const ShippingFormCollapsed = ({ section, shippingInfo, setSection }) => {
             {(section > 2) &&
             <Card className={classes.box} elevation={0}>  
                 <Grid container justify="space-between">
-                    <Grid item xs={6} sm={6} md={6} lg={6}>
+                    <Grid item xs={9} sm={8} md={8} lg={8}>
                         <CardHeader
                             title="2. Shipping"
                             className={classes.header}
                         /> 
                     </Grid>
-                    <Grid item xs={2} sm={2} md={2} lg={2}>
+                    <Grid item xs={3} sm={3} md={2} lg={2} align="right">
                         {(section !== 4) &&
                         <Button 
                             className={classes.editButton} 
@@ -52,7 +50,7 @@ const ShippingFormCollapsed = ({ section, shippingInfo, setSection }) => {
             {(section < 2) && 
             <Card className={classes.box} elevation={0}>
                 <Grid container justify="space-between">
-                    <Grid item xs={6} sm={6} md={6} lg={6}>
+                    <Grid item xs={12} sm={12} md={6} lg={6}>
                         <CardHeader
                             title="2. Shipping"
                             className={classes.grayHeader}

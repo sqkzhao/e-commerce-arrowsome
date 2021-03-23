@@ -9,7 +9,7 @@ import useStyles from './styles';
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo, customerInfo, setCustomerInfo, handleCaptureCheckout }) => {
-    const [processing, setProcessing] = useState('');
+    // const [processing, setProcessing] = useState('');
     const [disabled, setDisabled] = useState(true);
     const [cardError, setCardError] = useState('');
     const classes = useStyles();
@@ -25,21 +25,13 @@ const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo,
 
     const handleSubmit = async (e, elements, stripe) => {
         e.preventDefault();
-        // if shipping / email valid has error, set processing is false(validation)
-        if(cardError === '') {
-            setProcessing(true);
-            setPaymentSection(4);
-        } else {
-            setProcessing(false);
-            setPaymentSection(3);
-        }
         
         if(!stripe || !elements)  return;
 
         const cardElement = elements.getElement(CardElement);
         const { error, paymentMethod } = await stripe.createPaymentMethod({ type: 'card', card: cardElement });
         if(error) {
-            console.log('[error]', error);
+            // console.log('[error]', error);
         } else {
             const orderInfo = {
                 line_items: token.live.line_items,
@@ -70,6 +62,7 @@ const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo,
                 },
             };
             handleCaptureCheckout(token.id, orderInfo);
+            setPaymentSection();
         }
     };
 
@@ -93,8 +86,8 @@ const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo,
 
     return (
         <>
-            {(section === 3 || section === 4) ?
-
+            {(section === 3) ?
+            
             <Card className={classes.box} elevation={0}>
                 <CardHeader
                     title="3. Payment"
@@ -149,16 +142,16 @@ const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo,
                                             <FormHelperText className={classes.errorMsg}>{cardError}</FormHelperText> : 
                                             <FormHelperText> </FormHelperText>}
 
-                                            {processing ? 
+                                            {/* {processing ? 
                                             <Button
                                                 disabled
                                                 className={classes.payButton} 
                                                 fullWidth
                                             >
                                                 Processing..
-                                            </Button> :
+                                            </Button> : */}
                                             <Button 
-                                                disabled={processing || disabled || !stripe}
+                                                disabled={disabled || !stripe}
                                                 className={classes.payButton} 
                                                 type="submit"
                                                 fullWidth 
@@ -166,7 +159,7 @@ const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo,
                                                 color="primary"
                                             >
                                                 Pay {token && token.live.subtotal.formatted_with_symbol}
-                                            </Button>}
+                                            </Button>
                                         </CardContent>
                                     </Card>
                                 </CardContent>

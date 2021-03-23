@@ -7,9 +7,9 @@ export default makeStyles((theme) => ({
     },
     itemGrid: {
         width: '100vw',
-        borderBottom: 'solid 1px #DCDCDC',
-        paddingTop: '10px',
-        paddingBottom: '10px',
+        // borderBottom: 'solid 1px #DCDCDC',
+        // paddingTop: '10px',s
+        // paddingBottom: '10px',
     },
     header: {
         color: '#b6b6b6',
@@ -22,6 +22,16 @@ export default makeStyles((theme) => ({
         marginBottom: '40px',
         borderRadius: '0',
         backgroundColor: '#000',
+    },
+    circle: {
+        paddingTop: '40vh',
+    },
+    divider: {
+        width: '100%',
+        marginBottom: 15,
+    },
+    cartBox: {
+        marginBottom: 80,
     },
 }));
 

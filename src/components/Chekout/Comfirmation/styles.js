@@ -4,9 +4,12 @@ export default makeStyles((theme) => ({
         border: 'solid 1px #DCDCDC',
         marginBottom: '15px',
         padding: '10px',
+        width: '85%',
+        textAlign: 'center',
     },
-    header: {
-        paddingBottom: '0',
+    divider: {
+        marginTop: theme.spacing(2),
+        marginBottom: theme.spacing(2),
     },
     button: {
         marginTop: '15px',
@@ -17,24 +20,8 @@ export default makeStyles((theme) => ({
         paddingBottom: '8px',
         borderRadius: '0',
     },
-    // removeButton: {
-    //     padding: '0',
-    //     marginTop: '5px',
-    //     color: '#808080',
-    //     fontSize: '10px',
-    //     width: '50px',
-    // },
-    // itemGrid: {
-    //     paddingBottom: '20px',
-    // },
-    // subtotalGrid: {
-    //     color: '#808080',
-    // },
-    // totalGrid: {
-    //     paddingTop: '20px',
-    // },
-    // circle: {
-    //     padding: '7px',
-    //     color: '#000',
-    // },
+    circle: {
+        padding: '7px',
+        color: '#000',
+    },
 }));

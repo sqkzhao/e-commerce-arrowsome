@@ -30,8 +30,9 @@ const Menu = ({ cart }) => {
                 edge="start" 
                 color="inherit" 
                 aria-label="menu"
+                onClick={handleClickOpen}
             >
-                <MenuIcon onClick={handleClickOpen} />
+                <MenuIcon />
             </IconButton>
             <Dialog 
                 onClose={handleClose} 
@@ -50,8 +51,14 @@ const Menu = ({ cart }) => {
                             >
                                 <CloseIcon />
                             </IconButton>
-                            <Typography className={classes.title} align="center" variant="h6">
-                                <Link to='/' className={classes.title}>ARROWSOME</Link>
+                            <Typography 
+                                component={Link}
+                                to='/' 
+                                className={classes.title} 
+                                align="center" 
+                                variant="h6"
+                            >
+                                ARROWSOME
                             </Typography>
                             <CartIcon cart={cart} className={classes.carticon} />
                         </Toolbar>
@@ -62,29 +69,31 @@ const Menu = ({ cart }) => {
                     container 
                     direction="column" 
                     justify="center" 
-                    alignItems="center" 
                 >
-                    <Link to='/shop' className={classes.link}>
-                        <Button>
-                            <Typography className={classes.menuItem} variant="h4">
-                                Shop
-                            </Typography>
-                        </Button>
-                    </Link>
-                    <Link to='/ourstory' className={classes.link}>
-                        <Button>
-                            <Typography className={classes.menuItem} variant="h4">
-                                Our Story
-                            </Typography>
-                        </Button>
-                    </Link>
-                    <Link to='/contact' className={classes.link}>
-                        <Button>
-                            <Typography className={classes.menuItem} variant="h4">
-                                Contact
-                            </Typography>
-                        </Button>
-                    </Link>
+                    <Button
+                        component={Link}
+                        to='/shop'
+                    >
+                        <Typography className={classes.menuItem} variant="h4" align="center">
+                            Shop
+                        </Typography>
+                    </Button>
+                    <Button
+                        component={Link}
+                        to='/ourstory'
+                    >
+                        <Typography className={classes.menuItem} variant="h4" align="center">
+                            Our Story
+                        </Typography>
+                    </Button>
+                    <Button
+                        component={Link}
+                        to='/contact'
+                    >
+                        <Typography className={classes.menuItem} variant="h4" align="center">
+                            Contact
+                        </Typography>
+                    </Button>
                 </Grid>
             </Dialog>
         </div>

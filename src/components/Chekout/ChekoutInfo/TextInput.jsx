@@ -17,9 +17,9 @@ const TextInput = ({ name, label, defaultValue, helperText }) => {
                 variant="outlined"
                 fullWidth
                 required
-                defaultValue={defaultValue}
+                defaultValue={defaultValue ? defaultValue: ''}
                 helperText={helperText}
-                error={helperText}
+                error={helperText ? true : false }
             />
         </Grid>
     );
