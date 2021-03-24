@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
+import { useHistory } from 'react-router-dom';
 import  { Grid, Card, CardContent, CardHeader, Button, TextField, FormHelperText, Typography } from '@material-ui/core';
 import { Elements, ElementsConsumer, CardElement } from '@stripe/react-stripe-js';
 import CreditCardOutlinedIcon from '@material-ui/icons/CreditCardOutlined';
@@ -9,10 +10,10 @@ import useStyles from './styles';
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo, customerInfo, setCustomerInfo, handleCaptureCheckout }) => {
-    // const [processing, setProcessing] = useState('');
     const [disabled, setDisabled] = useState(true);
     const [cardError, setCardError] = useState('');
     const classes = useStyles();
+    const history = useHistory();
 
     const handleOnChange = (e) => {
         setCustomerInfo({...customerInfo, [e.target.name]: e.target.value});
@@ -29,6 +30,7 @@ const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo,
         if(!stripe || !elements)  return;
 
         const cardElement = elements.getElement(CardElement);
+
         const { error, paymentMethod } = await stripe.createPaymentMethod({ type: 'card', card: cardElement });
         if(error) {
             // console.log('[error]', error);
@@ -63,6 +65,7 @@ const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo,
             };
             handleCaptureCheckout(token.id, orderInfo);
             setPaymentSection();
+            history.push('/comfirmation');
         }
     };
 

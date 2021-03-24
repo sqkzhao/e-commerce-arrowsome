@@ -10,7 +10,8 @@ export default makeStyles(() => ({
     itemContent: {
     },
     media: {
-        aspectRatio: 0.9,
+        // aspectRatio: 0.9,
+        height: 220,
     },
     picture: {
         boxShadow: 'none',

@@ -10,7 +10,8 @@ export default makeStyles(() => ({
         marginBottom: 100,
     },
     media: {
-        aspectRatio: 1,
+        // aspectRatio: 1,
+        height: 180,
     },
     posts: {
         marginTop: 5,

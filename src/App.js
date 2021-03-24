@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Shop, Checkout, Home, Cart } from './components';
+import { Shop, Checkout, Home, Cart, Comfirmation } from './components';
 
 import ProductDetailes from './components/Shop/ProductDetailes';
 
@@ -93,6 +93,9 @@ const App = () => {
                             handleCaptureCheckout={handleCaptureCheckout}
                             error={error}
                         />
+                    </Route>
+                    <Route exact path='/comfirmation'>
+                        <Comfirmation order={order} error={error} />
                     </Route>
                 </Switch>
             </div>

@@ -16,7 +16,7 @@ const SectionShop = ({ products }) => {
                 </Grid>
                 <Grid container justify="center" spacing={3}>
                     {products.map((product, index) => ((index < 3) &&
-                    <Grid item xs={12} s={12} m={3} lg={3} key={index}>
+                    <Grid item xs={10} sm={3} md={3} lg={3} key={index}>
                         <Card square>
                             <CardMedia
                                 className={classes.media}

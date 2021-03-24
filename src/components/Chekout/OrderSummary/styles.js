@@ -7,7 +7,8 @@ export default makeStyles((theme) => ({
     },
     media: {
         width: 80,
-        aspectRatio: 1.5,
+        // aspectRatio: 1.5,
+        height: 120,
     },
     header: {
         paddingBottom: '0',
@@ -33,7 +34,8 @@ export default makeStyles((theme) => ({
         color: '#000',
     },
     media: {
-        aspectRatio: 0.9,
+        // aspectRatio: 0.9,
+        height: 100,
     },
     picture: {
         boxShadow: 'none',

@@ -11,7 +11,7 @@ export default makeStyles(() => ({
         marginBottom: 135,
     },
     media: {
-        height: 280,
+        height: 290,
     },
     title: {
         marginBottom: 45,

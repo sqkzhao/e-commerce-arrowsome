@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core';
 export default makeStyles((theme) => ({
     box: {
         border: 'solid 1px #DCDCDC',
+        marginTop: 70,
         marginBottom: '15px',
         padding: '10px',
         width: '85%',
@@ -23,5 +24,8 @@ export default makeStyles((theme) => ({
     circle: {
         padding: '7px',
         color: '#000',
+    },
+    textBox: {
+        padding: '50px 0',
     },
 }));

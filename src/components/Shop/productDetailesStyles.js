@@ -6,7 +6,8 @@ export default makeStyles(() => ({
         paddingBottom: 0,
       },
     media: {
-        aspectRatio: 0.9,
+        // aspectRatio: 0.9,
+        height: 500,
     },
     cartButton: {
         paddingTop: '15px',

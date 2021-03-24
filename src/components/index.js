@@ -6,3 +6,4 @@ export { default as Shop } from './Shop/Shop';
 export { default as CartItem } from './Cart/CartItem/CartItem';
 export { default as Checkout } from './Chekout/Checkout';
 export { default as CheckoutInfo } from './Chekout/ChekoutInfo/CheckoutInfo';
+export { default as Comfirmation } from './Chekout/Comfirmation/Comfirmation';

@@ -1,19 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link, useHistory } from 'react-router-dom'; 
 import { Container, Grid, Card, CardContent, Button, Typography, CircularProgress, Divider } from '@material-ui/core';
+import CheckoutNav from '../CheckoutNav/CheckoutNav';
 import useStyles from './styles';
 
-const Comfirmation = ({ order, isEmpty, error }) => {
+const Comfirmation = ({ order, error }) => {
     const classes = useStyles();
 
     const OrderComfirmation = () => (
-        (order ? 
-        // Order Comfirmation
-        (<CardContent>
-            <Typography component="h5" variant="h5">Thank you for your order, {order.customer.firstName} {order.customer.lastName}!</Typography>
+        <CardContent>
+            <Typography component="h5" variant="h5">Thank you for your order!</Typography>
             <Divider className={classes.divider}/>
-            <Typography>Order reference: {order.customer_reference}.</Typography>
-            <Typography>Your order recipe will be sent to {order.customer.email}.</Typography>
+            <Grid className={classes.textBox}>
+                <Typography>Your order reference is {order.customer_reference}.</Typography>
+                <Typography>A comfirmation has benn sent to your email.</Typography>
+            </Grid>
             <Button 
                 className={classes.button}
                 color="primary"
@@ -23,18 +24,16 @@ const Comfirmation = ({ order, isEmpty, error }) => {
             >
                 Back to home
             </Button> 
-        </CardContent>) : (
-        // Loading
-        <Grid container justify="center">
-            <CircularProgress className={classes.circle}/>
-        </Grid>))
+        </CardContent>
     );
 
     const OrderIncomplete = () => (
         <CardContent>
             <Typography component="h5" variant="h5">Sorry, your order is incompleted.</Typography>
             <Divider className={classes.divider}/>
-            <Typography>{error} Please try again.</Typography>
+            <Typography className={classes.textBox}>
+                {error}. Please try again.
+            </Typography>
             <Button 
                 className={classes.button}
                 variant="contained"
@@ -48,15 +47,24 @@ const Comfirmation = ({ order, isEmpty, error }) => {
     );
 
     return (
-        <Container>
-            <Grid container justify="center">
-                <Card className={classes.box} elevation={0}>
-                    {error ?
-                    <OrderComfirmation /> :
-                    <OrderIncomplete />}
-                </Card>
-            </Grid>
-        </Container>
+        <>
+            <CheckoutNav />
+
+            <Container>
+                <Grid container justify="center">
+                    <Card className={classes.box} elevation={0}>
+                        {(!error && !order.customer) &&
+                        <Grid className={classes.textBox} container justify="center">
+                            <CircularProgress className={classes.circle}/>
+                        </Grid>}
+                        
+                        {order.customer && <OrderComfirmation />}
+                        {error && <OrderIncomplete />}
+
+                    </Card>
+                </Grid>
+            </Container>
+        </>
     );
 };
 
