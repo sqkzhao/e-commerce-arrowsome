@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Typography, Button } from '@material-ui/core';
+import { Grid, Typography, Button, useMediaQuery, ThemeProvider } from '@material-ui/core';
 import Navbar from '../Navbar/Navbar';
+import { colortheme } from '../../lib/colortheme';
 import useStyles from './coverstyles';
-import styles from '../../module.css/Cover.module.css';
 
 const Cover = ({ cart }) => {
     const classes = useStyles();
+    const matches = useMediaQuery('(min-width:415px)');
 
     return (
         <div className={classes.root}>
@@ -18,18 +19,26 @@ const Cover = ({ cart }) => {
                 justify="center" 
                 alignItems="center"
             >
-                <Typography className={classes.title} variant="h3" align="center">
-                    Lorem ipsum dolor sit amet
-                </Typography>
-                <Button 
-                    className={classes.shopButton}
-                    component={Link} 
-                    to='/shop'
-                    size="large" 
-                    variant="contained" 
-                >
-                    Shop Now
-                </Button>
+                <ThemeProvider theme={colortheme}>
+                    <Typography 
+                        className={matches ? classes.title : classes.mobileTitle} 
+                        variant="h3" 
+                        align="center"
+                        color="primary"
+                    >
+                        Lorem ipsum dolor sit amet
+                    </Typography>
+                    <Button 
+                        className={classes.shopButton}
+                        color="primary"
+                        component={Link} 
+                        to='/shop'
+                        size="large" 
+                        variant="contained"
+                    >
+                        Shop Now
+                    </Button>
+                </ThemeProvider>
             </Grid>
         </div>
     );

@@ -7,6 +7,7 @@ export default makeStyles((theme) => ({
         padding: '10px',
     },
     header: {
+        // color: '#0d362f',
         paddingBottom: '0',
     },
     grayHeader: {
@@ -16,9 +17,8 @@ export default makeStyles((theme) => ({
         paddingTop: '0',
     },
     continueButton: {
+        backgroundColor: '#0d362f',
         marginTop: '15px',
-        backgroundColor: '#313131',
-        color: '#fff',
         width: '100%',
         paddingTop: '8px',
         paddingBottom: '8px',
@@ -42,9 +42,8 @@ export default makeStyles((theme) => ({
     },
     // PaymentForm
     payButton: {
+        backgroundColor: '#0d362f',
         marginTop: '8px',
-        backgroundColor: '#313131',
-        color: '#fff',
         width: '100%',
         paddingTop: '5px',
         paddingBottom: '5px',
@@ -54,7 +53,7 @@ export default makeStyles((theme) => ({
         marginBottom: '20px',
     },
     creditCard: {
-        backgroundColor: '#ebfbf4',
+        backgroundColor: '#e6eaea',
     },
     errorMsg: {
         color: '#ff0000',

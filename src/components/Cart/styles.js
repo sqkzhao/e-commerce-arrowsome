@@ -2,14 +2,8 @@ import { makeStyles } from '@material-ui/core';
 
 export default makeStyles((theme) => ({
     toolbar: theme.mixins.toolbar,
-    title: {
-        marginBottom: '3%',
-    },
     itemGrid: {
         width: '100vw',
-        // borderBottom: 'solid 1px #DCDCDC',
-        // paddingTop: '10px',s
-        // paddingBottom: '10px',
     },
     header: {
         color: '#b6b6b6',
@@ -21,7 +15,6 @@ export default makeStyles((theme) => ({
         marginTop: '40px',
         marginBottom: '40px',
         borderRadius: '0',
-        backgroundColor: '#000',
     },
     circle: {
         paddingTop: '40vh',
@@ -32,6 +25,14 @@ export default makeStyles((theme) => ({
     },
     cartBox: {
         marginBottom: 80,
+    },
+    title: {
+        marginBottom: '3%',
+        fontSize: '2rem',
+    },
+    mobileTitle: {
+        fontSize: '1.35rem',
+        marginBottom: '5%',
     },
 }));
 

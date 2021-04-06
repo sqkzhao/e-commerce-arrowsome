@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
     title: {
         flexGrow: 1,
         textDecoration: 'none',
-        color: 'black',
+        color: '#0d362f',
     },
     toolbar: theme.mixins.toolbar,
 }));

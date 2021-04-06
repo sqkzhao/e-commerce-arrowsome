@@ -6,9 +6,10 @@ export default makeStyles((theme) => ({
         padding: '10px',
     },
     media: {
-        width: 80,
-        // aspectRatio: 1.5,
-        height: 120,
+        height: 100,
+    },
+    mobileMedia: {
+        height: '17.5vw',
     },
     header: {
         paddingBottom: '0',
@@ -31,11 +32,6 @@ export default makeStyles((theme) => ({
     },
     circle: {
         padding: '10px',
-        color: '#000',
-    },
-    media: {
-        // aspectRatio: 0.9,
-        height: 100,
     },
     picture: {
         boxShadow: 'none',

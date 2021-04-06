@@ -1,10 +1,16 @@
 import React from 'react';
-import { Grid, Card, CardContent, CardHeader, Typography, CircularProgress, CardMedia } from '@material-ui/core';
+import { 
+    Grid, Card, CardContent, CardHeader, 
+    Typography, CircularProgress, CardMedia,
+    useMediaQuery, ThemeProvider
+} from '@material-ui/core';
+import { colortheme } from '../../../lib/colortheme';
 import useStyles from './styles';
 
 const OrderSummary = ({ token, cart }) => {
     const classes = useStyles();
-    
+    const matches = useMediaQuery('(min-width:961px)');
+
     return (
         <Card className={classes.box} elevation={0}>
             <CardHeader
@@ -16,7 +22,9 @@ const OrderSummary = ({ token, cart }) => {
                     <Grid className={classes.itemGrid} key={item.id} container spacing={2}>
                         <Grid item xs={3} sm={3} md={3} lg={3}>
                             <Card className={classes.picture} square>
-                                <CardMedia image={item.media.source} className={classes.media} />
+                                {matches ? 
+                                <CardMedia image={item.media.source} className={classes.media} /> :
+                                <CardMedia image={item.media.source} className={classes.mobileMedia} />}
                             </Card>
                         </Grid>
                         <Grid item xs={6} sm={6} md={6} lg={6} variant='body1'>
@@ -33,7 +41,9 @@ const OrderSummary = ({ token, cart }) => {
                     </Grid>
                 )) :
                 <Grid container justify="center">
-                    <CircularProgress className={classes.circle} />            
+                    <ThemeProvider theme={colortheme}>
+                        <CircularProgress className={classes.circle} />     
+                    </ThemeProvider>       
                 </Grid>}
 
                 <Grid className={classes.subtotalGrid} container justify="space-between">

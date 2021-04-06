@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Shop, Checkout, Home, Cart, Comfirmation } from './components';
-
 import ProductDetailes from './components/Shop/ProductDetailes';
 
 const App = () => {
@@ -13,6 +12,7 @@ const App = () => {
 
     const fetchProducts = async () => {
         const { data } = await commerce.products.list();
+        console.log(data);
         setProducts(data);
     };
 
@@ -43,7 +43,6 @@ const App = () => {
     const handleCaptureCheckout = async (tokenId, order) => {
         try {
             const processingOrder = await commerce.checkout.capture(tokenId, order);
-            console.log(processingOrder);
             setOrder(processingOrder);
             refreshCart()
         } catch(error) {

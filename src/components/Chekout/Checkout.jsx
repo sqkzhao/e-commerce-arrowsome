@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { commerce } from '../../lib/commerce';
-import { Grid, Container, AppBar, Toolbar, Typography } from '@material-ui/core';
+import { Grid, Container } from '@material-ui/core';
 import CheckoutInfo from './ChekoutInfo/CheckoutInfo';
 import OrderSummary from './OrderSummary/OrderSummary';
 import CheckoutNav from './CheckoutNav/CheckoutNav';

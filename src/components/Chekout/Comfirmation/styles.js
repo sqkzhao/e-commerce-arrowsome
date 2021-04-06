@@ -7,6 +7,7 @@ export default makeStyles((theme) => ({
         padding: '10px',
         width: '85%',
         textAlign: 'center',
+        height: '65vh',
     },
     divider: {
         marginTop: theme.spacing(2),
@@ -21,8 +22,15 @@ export default makeStyles((theme) => ({
         paddingBottom: '8px',
         borderRadius: '0',
     },
+    circularButton: {
+        backgroundColor: '#313131',
+        color: '#fff',
+        paddingTop: '8px',
+        paddingBottom: '8px',
+        borderRadius: '0',
+    },
     circle: {
-        padding: '7px',
+        marginTop: '100px',
         color: '#000',
     },
     textBox: {

@@ -10,8 +10,10 @@ export default makeStyles(() => ({
     itemContent: {
     },
     media: {
-        // aspectRatio: 0.9,
-        height: 220,
+        height: '27vh',
+    },
+    mobileMedia: {
+        height: '23vw',
     },
     picture: {
         boxShadow: 'none',
@@ -20,6 +22,18 @@ export default makeStyles(() => ({
         width: '100%',
         marginTop: 15,
         marginBottom: 15,
+    },
+    name: {
+        fontSize: '1.3rem',
+    },
+    mobileName: {
+        fontSize: '0.85rem',
+    },
+    price: {
+        fontSize: '1.1rem',
+    }, 
+    mobilePrice: {
+        fontSize: '0.8rem',
     },
 }));
 

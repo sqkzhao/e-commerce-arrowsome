@@ -11,7 +11,12 @@ export default makeStyles(() => ({
         marginBottom: 135,
     },
     media: {
-        height: 290,
+        // height: 290,
+        height: '21.5vw',
+    },
+    mobileMedia: {
+        // height: '74vw',
+        height: '60vw',
     },
     title: {
         marginBottom: 45,

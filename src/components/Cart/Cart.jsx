@@ -1,15 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Typography, Grid, Container, Button, CircularProgress, Divider } from '@material-ui/core';
+import { 
+    Typography, Grid, Container, Button, ThemeProvider,
+    Divider, useMediaQuery, CircularProgress
+} from '@material-ui/core';
 import { Navbar, CartItem } from '../../components';
+import { colortheme } from '../../lib/colortheme';
 import useStyles from './styles';
 
 const Cart = ({ cart, handelUpdateCart, handleRemoveFromCart }) => {
     const classes = useStyles();
+    const matches = useMediaQuery('(min-width:415px)');
     const isEmpty = !cart.total_items;
 
     const EmptyCart = () => (
-        <Typography variant="subtitle">
+        <Typography variant="subtitle1">
             You have nothing in your shopping bag.
         </Typography>
     );
@@ -36,6 +41,7 @@ const Cart = ({ cart, handelUpdateCart, handleRemoveFromCart }) => {
                     </Typography>
                 </Grid>
             </Grid>
+            
             <Divider className={classes.divider} />
             {/* cart items */}
             {cart.line_items.map((item) => (
@@ -54,16 +60,19 @@ const Cart = ({ cart, handelUpdateCart, handleRemoveFromCart }) => {
                 </Grid>
             </Grid>
             <Grid container direction="row" justify="flex-end">
-                <Button 
-                    className={classes.checkoutButton}
-                    component={Link} 
-                    to='/checkout' 
-                    size="large" 
-                    color="primary" 
-                    variant="contained"
-                >
-                    CHECKOUT
-                </Button>
+                <ThemeProvider theme={colortheme}>
+                    <Button 
+                        className={classes.checkoutButton}
+                        component={Link} 
+                        to='/checkout' 
+                        size="large" 
+                        color="primary" 
+                        variant="contained"
+                        color="primary"
+                    >
+                        CHECKOUT
+                    </Button>
+                </ThemeProvider>
             </Grid>
         </Grid>
     );
@@ -82,9 +91,10 @@ const Cart = ({ cart, handelUpdateCart, handleRemoveFromCart }) => {
             <Container>
                 <div className={classes.toolbar} />
                 <Container className={classes.cartBox}>
-                    <Typography className={classes.title} variant="h5">
+                    <Typography className={matches ? classes.title : classes.mobileTitle}>
                         SHOPPING BAG
-                    </Typography>
+                    </Typography> 
+
                     {isEmpty ? <EmptyCart /> : <FullCart />}
                 </Container>
             </Container>

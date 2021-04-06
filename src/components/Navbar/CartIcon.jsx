@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { IconButton, Badge } from '@material-ui/core';
+import { IconButton, Badge, ThemeProvider } from '@material-ui/core';
 import LocalMallOutlinedIcon from '@material-ui/icons/LocalMallOutlined';
+import { colortheme } from '../../lib/colortheme';
 
 const CartIcon = ({ cart }) => {
     if(!cart) return;
@@ -14,9 +15,11 @@ const CartIcon = ({ cart }) => {
             component={Link}
             to='/cart'
         >
-            <Badge badgeContent={cart.total_items} color="primary">
-                <LocalMallOutlinedIcon />
-            </Badge>
+            <ThemeProvider theme={colortheme}>
+                <Badge badgeContent={cart.total_items} color="primary">
+                    <LocalMallOutlinedIcon />
+                </Badge>
+            </ThemeProvider>
         </IconButton>
     );
 };

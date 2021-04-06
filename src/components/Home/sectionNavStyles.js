@@ -3,24 +3,30 @@ import { makeStyles } from '@material-ui/core';
 export default makeStyles(() => ({
     root: {
         width: '100vw',
-        backgroundColor: '#dbf1c5',
+        backgroundColor: '#0d362f',
+        color: '#fff',
+    },
+    divider: {
+        backgroundColor: '#fff',
     },
     container: {
         marginTop: 60,
         marginBottom: 100,
     },
     media: {
-        // aspectRatio: 1,
-        height: 180,
+        height: '12.5vw',
+    },
+    mobileMedia: {
+        height: '28vw',
     },
     posts: {
         marginTop: 5,
     },
     link: {
         textDecoration: 'none',
-        color: '#000',
+        color: '#fff',
     },
     instagram: {
-        // backgroundColor: '#d1edb5',
+        // paddingBottom: 15,
     },
 }));

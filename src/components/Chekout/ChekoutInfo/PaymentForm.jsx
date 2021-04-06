@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { useHistory } from 'react-router-dom';
-import  { Grid, Card, CardContent, CardHeader, Button, TextField, FormHelperText, Typography } from '@material-ui/core';
+import  { 
+    Grid, Card, CardContent, CardHeader, Button, 
+    TextField, FormHelperText, Typography, ThemeProvider 
+} from '@material-ui/core';
 import { Elements, ElementsConsumer, CardElement } from '@stripe/react-stripe-js';
 import CreditCardOutlinedIcon from '@material-ui/icons/CreditCardOutlined';
 import PaymentFormCollapsed from './PaymentFormCollapsed';
+import { colortheme } from '../../../lib/colortheme';
 import useStyles from './styles';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
-const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo, customerInfo, setCustomerInfo, handleCaptureCheckout }) => {
+const PaymentForm = ({ section, setPaymentSection, token, giftMsg, deliveryDate, shippingInfo, customerInfo, setCustomerInfo, handleCaptureCheckout }) => {
     const [disabled, setDisabled] = useState(true);
     const [cardError, setCardError] = useState('');
     const classes = useStyles();
@@ -45,8 +49,9 @@ const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo,
                 shipping: {
                     name: shippingInfo.firstName + " " + shippingInfo.lastName,
                     street: shippingInfo.address,
-                    town_city: shippingInfo.city,
-                    county_state: shippingInfo.state,
+                    // town_city: shippingInfo.city,
+                    town_city: 'San Francisco',
+                    county_state: 'US-CA',
                     postal_zip_code: shippingInfo.zipcode,
                     country: 'US'
                 },
@@ -60,7 +65,8 @@ const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo,
                     },
                 },
                 extra_fields: {
-                    "extr_ZRjywMOjZ57Y8G": giftMsg,
+                    "extr_DWy4oG4Jn56Jx2": giftMsg,
+                    "extr_RyWOwmdOplnEa2": deliveryDate.toLocaleDateString(),
                 },
             };
             handleCaptureCheckout(token.id, orderInfo);
@@ -72,12 +78,12 @@ const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo,
     const cardStyle = {
         style: {
           base: {
-            color: "#32325d",
-            fontFamily: 'Arial, sans-serif',
+            color: "#000",
+            fontFamily: 'Roboto, Arial, sans-serif',
             fontSmoothing: "antialiased",
             fontSize: "16px",
             "::placeholder": {
-              color: "#32325d"
+              color: "#808080"
             }
           },
           invalid: {
@@ -114,29 +120,31 @@ const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo,
                                             </Grid>
                                             </Grid>
                                             <Grid container justify="space-around" spacing={3}>
-                                                <Grid item xs={6} sm={6} md={6} lg={6}>
-                                                    <TextField 
-                                                        fullWidth 
-                                                        required
-                                                        className={classes.nameField}
-                                                        color='primary'
-                                                        name="firstName" 
-                                                        size="small" 
-                                                        placeholder="First name*"
-                                                        onChange={handleOnChange} 
-                                                    />
-                                                </Grid>
-                                                <Grid item xs={6} sm={6} md={6} lg={6}>
-                                                    <TextField 
-                                                        fullWidth 
-                                                        required
-                                                        name="lastName" 
-                                                        className={classes.nameField}
-                                                        size="small" 
-                                                        placeholder="Last name*"
-                                                        onChange={handleOnChange} 
-                                                    />
-                                                </Grid>
+                                                <ThemeProvider theme={colortheme}>
+                                                    <Grid item xs={6} sm={6} md={6} lg={6}>
+                                                        <TextField 
+                                                            fullWidth 
+                                                            required
+                                                            className={classes.nameField}
+                                                            color='primary'
+                                                            name="firstName" 
+                                                            size="small" 
+                                                            placeholder="First name*"
+                                                            onChange={handleOnChange} 
+                                                        />
+                                                    </Grid>
+                                                    <Grid item xs={6} sm={6} md={6} lg={6}>
+                                                        <TextField 
+                                                            fullWidth 
+                                                            required
+                                                            name="lastName" 
+                                                            className={classes.nameField}
+                                                            size="small" 
+                                                            placeholder="Last name*"
+                                                            onChange={handleOnChange} 
+                                                        />
+                                                    </Grid>
+                                                </ThemeProvider>
                                             </Grid> 
 
                                             <CardElement options={cardStyle} onChange={handleChange} />
@@ -145,24 +153,18 @@ const PaymentForm = ({ section, setPaymentSection, token, giftMsg, shippingInfo,
                                             <FormHelperText className={classes.errorMsg}>{cardError}</FormHelperText> : 
                                             <FormHelperText> </FormHelperText>}
 
-                                            {/* {processing ? 
-                                            <Button
-                                                disabled
-                                                className={classes.payButton} 
-                                                fullWidth
-                                            >
-                                                Processing..
-                                            </Button> : */}
-                                            <Button 
-                                                disabled={disabled || !stripe}
-                                                className={classes.payButton} 
-                                                type="submit"
-                                                fullWidth 
-                                                variant="contained"
-                                                color="primary"
-                                            >
-                                                Pay {token && token.live.subtotal.formatted_with_symbol}
-                                            </Button>
+                                            <ThemeProvider theme={colortheme}>
+                                                <Button 
+                                                    disabled={disabled || !stripe}
+                                                    className={classes.payButton} 
+                                                    type="submit"
+                                                    fullWidth 
+                                                    variant="contained"
+                                                    color="primary"
+                                                >
+                                                    Pay {token && token.live.subtotal.formatted_with_symbol}
+                                                </Button>
+                                            </ThemeProvider>
                                         </CardContent>
                                     </Card>
                                 </CardContent>

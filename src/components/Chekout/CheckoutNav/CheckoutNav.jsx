@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { Grid, Container, AppBar, Toolbar, Typography } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import { Container, AppBar, Toolbar, Typography } from '@material-ui/core';
 import useStyles from './styles';
 
 const CheckoutNav = () => {

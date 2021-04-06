@@ -1,7 +1,8 @@
 import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
-import  { Card, CardContent, CardHeader, Typography, Button, Grid } from '@material-ui/core';
+import  { Card, CardContent, CardHeader, Typography, Button, Grid, ThemeProvider } from '@material-ui/core';
 import TextInput from './TextInput';
+import { colortheme } from '../../../lib/colortheme';
 import useStyles from './styles';
 
 const EmailForm = ({ section, email, inputError, setEmailSection, setSection }) => {
@@ -32,15 +33,17 @@ const EmailForm = ({ section, email, inputError, setEmailSection, setSection }) 
                             <Typography variant="body2" color="textSecondary" component="p">
                                 You'll receive receipts and notifications at this email address.
                             </Typography>
-                            <Button 
-                                className={classes.continueButton} 
-                                type="submit" 
-                                fullWidth 
-                                variant="contained" 
-                                color="primary"
-                            >
-                                Continue
-                            </Button>
+                            <ThemeProvider theme={colortheme}>
+                                <Button 
+                                    className={classes.continueButton} 
+                                    type="submit" 
+                                    fullWidth 
+                                    variant="contained" 
+                                    color="primary"
+                                >
+                                    Continue
+                                </Button>
+                            </ThemeProvider>
                         </CardContent>
                     </Card>
                 </form>

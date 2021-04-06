@@ -2,7 +2,7 @@ import React from 'react';
 import  { Grid, Card, CardContent, CardHeader, Button, Typography } from '@material-ui/core';
 import useStyles from './styles';
 
-const ShippingFormCollapsed = ({ section, shippingInfo, setSection }) => {
+const ShippingFormCollapsed = ({ section, shippingInfo, giftMsg, deliveryDate, setSection }) => {
     const classes = useStyles();
 
     const handleOnClick = () => {
@@ -35,13 +35,28 @@ const ShippingFormCollapsed = ({ section, shippingInfo, setSection }) => {
                 </Grid>                                           
                 <CardContent>
                     <Typography variant="body2" component="p">
+                        <strong>Shipping address</strong>
+                        <br/>
                         {shippingInfo.firstName} {shippingInfo.firstName}
                     </Typography>
                     <Typography variant="body2" component="p">
                         {shippingInfo.address}
                     </Typography>
                     <Typography variant="body2" component="p">
-                        {shippingInfo.city}, CA {shippingInfo.zipcode}
+                        {/* {shippingInfo.city} */}
+                        San Francisco, CA {shippingInfo.zipcode}
+                    </Typography>
+                    <br/>
+                    <Typography variant="body2" component="p">
+                        <strong>Special message</strong>
+                        <br/>
+                        {giftMsg ? giftMsg : 'N/A'}
+                    </Typography>
+                    <br/>
+                    <Typography variant="body2" component="p">
+                        <strong>Schedule delivery date</strong>
+                        <br/>
+                        {deliveryDate.toLocaleDateString()}
                     </Typography>
                 </CardContent>
             </Card>}
