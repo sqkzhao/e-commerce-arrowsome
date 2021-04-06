@@ -23,6 +23,9 @@ export default makeStyles((theme) => ({
         paddingTop: '8px',
         paddingBottom: '8px',
         borderRadius: '0',
+        '&:hover': {
+            backgroundColor: '#254A43',
+        },
     },
     twoTextfield: {
         width: '48%',
@@ -48,6 +51,9 @@ export default makeStyles((theme) => ({
         paddingTop: '5px',
         paddingBottom: '5px',
         borderRadius: '0',
+        '&:hover': {
+            backgroundColor: '#254A43',
+        },
     },
     nameField: {
         marginBottom: '20px',

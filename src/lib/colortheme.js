@@ -6,13 +6,13 @@ export const colortheme = createMuiTheme({
       light: '#ced6d5',
       main: '#0d362f',
       dark: '#254A43',
-      contrastText: '#fff',
+      contrastText: '#fffff2',
     },
     secondary: {
       light: '#ff7961',
-      main: '#55726d',
-      dark: '#6d8682',
-      contrastText: '#000',
+      main: '#fff',
+      dark: '#0d362f',
+      contrastText: '#0d362f',
     },
   },
 });

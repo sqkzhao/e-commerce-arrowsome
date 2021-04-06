@@ -31,7 +31,7 @@ const Checkout = ({ cart, handleCaptureCheckout, error }) => {
 
     return (
         <Grid className={classes.checkoutBox}>
-            <CheckoutNav />
+            <CheckoutNav cart={cart} />
 
             <Container className={classes.container}>
                 <div>

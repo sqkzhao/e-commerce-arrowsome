@@ -34,5 +34,10 @@ export default makeStyles((theme) => ({
         fontSize: '1.35rem',
         marginBottom: '5%',
     },
+    backToShop: {
+        textDecoration: 'none',
+        color: '#0d362f',
+        marginBottom: 40, 
+    },
 }));
 

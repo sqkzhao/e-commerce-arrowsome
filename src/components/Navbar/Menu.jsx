@@ -88,10 +88,10 @@ const Menu = ({ cart }) => {
                     </Button>
                     <Button
                         component={Link}
-                        to='/login'
+                        to='/'
                     >
                         <Typography className={classes.menuItem} variant="h4" align="center">
-                            Login
+                            Instagram
                         </Typography>
                     </Button>
                 </Grid>

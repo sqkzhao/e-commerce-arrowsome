@@ -7,6 +7,10 @@ export default makeStyles(() => ({
     closeIcon: {
         color: '#b6b6b6',
     },
+    mobileCloseIcon: {
+        color: '#b6b6b6',
+        fontSize: '1rem',
+    },
     itemContent: {
     },
     media: {

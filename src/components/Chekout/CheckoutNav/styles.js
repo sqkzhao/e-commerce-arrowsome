@@ -10,6 +10,11 @@ export default makeStyles((theme) => ({
         flexGrow: 1,
         textDecoration: 'none',
         color: '#0d362f',
+        paddingTop: 10,
+    },
+    icon: {
+        textDecoration: 'none',
+        color: '#000',
     },
     toolbar: theme.mixins.toolbar,
 }));

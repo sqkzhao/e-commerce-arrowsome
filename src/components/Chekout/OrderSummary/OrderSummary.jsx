@@ -27,8 +27,10 @@ const OrderSummary = ({ token, cart }) => {
                                 <CardMedia image={item.media.source} className={classes.mobileMedia} />}
                             </Card>
                         </Grid>
-                        <Grid item xs={6} sm={6} md={6} lg={6} variant='body1'>
-                            {item.name}
+                        <Grid item xs={6} sm={6} md={6} lg={6}>
+                            <Typography variant='body1'>
+                                {item.name}
+                            </Typography>
                         </Grid>
                         <Grid item align="right" xs={3} sm={3} md={3} lg={3}>
                             <Typography variant="subtitle2">

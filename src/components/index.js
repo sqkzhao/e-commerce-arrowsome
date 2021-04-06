@@ -7,3 +7,4 @@ export { default as CartItem } from './Cart/CartItem/CartItem';
 export { default as Checkout } from './Chekout/Checkout';
 export { default as CheckoutInfo } from './Chekout/ChekoutInfo/CheckoutInfo';
 export { default as Comfirmation } from './Chekout/Comfirmation/Comfirmation';
+export { default as Login } from './Login/Login';

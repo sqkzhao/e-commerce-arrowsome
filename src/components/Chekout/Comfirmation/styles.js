@@ -15,12 +15,15 @@ export default makeStyles((theme) => ({
     },
     button: {
         marginTop: '15px',
-        backgroundColor: '#313131',
         color: '#fff',
         width: '100%',
         paddingTop: '8px',
         paddingBottom: '8px',
         borderRadius: '0',
+        backgroundColor: '#0d362f',
+        '&:hover': {
+            backgroundColor: '#254A43',
+        },
     },
     circularButton: {
         backgroundColor: '#313131',

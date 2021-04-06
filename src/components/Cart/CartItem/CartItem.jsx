@@ -27,7 +27,7 @@ const CartItem = ({ item, handelUpdateCart, handleRemoveFromCart }) => {
             <Grid className={classes.itemGrid} container direction="row" alignItems="center" spacing={2}>
                 <Grid item xs={1} sm={1} md={1} lg={1}>
                     <IconButton onClick={() => handleRemoveFromCart(item.id)} edge="start" color="inherit" aria-label="close">
-                        <CloseIcon className={classes.closeIcon} />
+                        <CloseIcon className={matches ? classes.closeIcon : classes.mobileCloseIcon} />
                     </IconButton>
                 </Grid>
                 <Grid className={classes.itemContent} item xs={3} sm={3} md={2} lg={2} >

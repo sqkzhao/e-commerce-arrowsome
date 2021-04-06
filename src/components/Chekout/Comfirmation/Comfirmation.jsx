@@ -12,7 +12,7 @@ const Comfirmation = ({ order, error }) => {
     const timeout = () => {
         setTimeout(() => {
             setIsValid(false);
-        }, 3000);
+        }, 5000);
     };
 
     useEffect(() => {
@@ -87,9 +87,8 @@ const Comfirmation = ({ order, error }) => {
                             </Grid>
                         }
 
-                        {order.customer && <OrderComfirmation />}
-                        {error && <OrderIncomplete />}
-
+                        {order.customer ? <OrderComfirmation /> : error && <OrderIncomplete />} 
+                        {/* {error} */}
                     </Card>
                 </Grid>
             </Container>

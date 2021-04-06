@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { commerce } from './lib/commerce';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Shop, Checkout, Home, Cart, Comfirmation } from './components';
+import { Shop, Checkout, Home, Cart, Comfirmation, Login } from './components';
 import ProductDetailes from './components/Shop/ProductDetailes';
 
 const App = () => {
@@ -44,7 +44,8 @@ const App = () => {
         try {
             const processingOrder = await commerce.checkout.capture(tokenId, order);
             setOrder(processingOrder);
-            refreshCart()
+            refreshCart();
+            setError('');
         } catch(error) {
             setError(error.data.error.message);
         }
@@ -96,6 +97,9 @@ const App = () => {
                     <Route exact path='/comfirmation'>
                         <Comfirmation order={order} error={error} />
                     </Route>
+                    {/* <Route exact path='/login'>
+                        <Login />
+                    </Route> */}
                 </Switch>
             </div>
         </Router>

@@ -49,7 +49,6 @@ const PaymentForm = ({ section, setPaymentSection, token, giftMsg, deliveryDate,
                 shipping: {
                     name: shippingInfo.firstName + " " + shippingInfo.lastName,
                     street: shippingInfo.address,
-                    // town_city: shippingInfo.city,
                     town_city: 'San Francisco',
                     county_state: 'US-CA',
                     postal_zip_code: shippingInfo.zipcode,
@@ -153,18 +152,16 @@ const PaymentForm = ({ section, setPaymentSection, token, giftMsg, deliveryDate,
                                             <FormHelperText className={classes.errorMsg}>{cardError}</FormHelperText> : 
                                             <FormHelperText> </FormHelperText>}
 
-                                            <ThemeProvider theme={colortheme}>
-                                                <Button 
-                                                    disabled={disabled || !stripe}
-                                                    className={classes.payButton} 
-                                                    type="submit"
-                                                    fullWidth 
-                                                    variant="contained"
-                                                    color="primary"
-                                                >
-                                                    Pay {token && token.live.subtotal.formatted_with_symbol}
-                                                </Button>
-                                            </ThemeProvider>
+                                            <Button 
+                                                disabled={disabled || !stripe}
+                                                className={classes.payButton} 
+                                                type="submit"
+                                                fullWidth 
+                                                variant="contained"
+                                                color="primary"
+                                            >
+                                                Pay {token && token.live.subtotal.formatted_with_symbol}
+                                            </Button>
                                         </CardContent>
                                     </Card>
                                 </CardContent>

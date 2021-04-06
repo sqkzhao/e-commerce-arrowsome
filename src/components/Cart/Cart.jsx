@@ -6,6 +6,7 @@ import {
 } from '@material-ui/core';
 import { Navbar, CartItem } from '../../components';
 import { colortheme } from '../../lib/colortheme';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import useStyles from './styles';
 
 const Cart = ({ cart, handelUpdateCart, handleRemoveFromCart }) => {
@@ -91,9 +92,21 @@ const Cart = ({ cart, handelUpdateCart, handleRemoveFromCart }) => {
             <Container>
                 <div className={classes.toolbar} />
                 <Container className={classes.cartBox}>
-                    <Typography className={matches ? classes.title : classes.mobileTitle}>
-                        SHOPPING BAG
-                    </Typography> 
+                    <Grid container justify="space-between">
+                        <Grid item>
+                            <Typography className={matches ? classes.title : classes.mobileTitle}>
+                                SHOPPING BAG
+                            </Typography> 
+                        </Grid>
+                        <Grid item>
+                            <Grid container className={classes.backToShop} component={Link} to='/shop'>
+                                <Typography variant="body1">
+                                    <strong>Back to Shop</strong>
+                                </Typography>
+                                <ArrowForwardIosIcon variant="body1" />
+                            </Grid>
+                        </Grid> 
+                    </Grid>
 
                     {isEmpty ? <EmptyCart /> : <FullCart />}
                 </Container>
